@@ -1,0 +1,394 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-02-15 05:35:09.193437",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "column_break_eqjei",
+  "mill",
+  "column_break_3pcns",
+  "production_date",
+  "column_break_nx3fb",
+  "product",
+  "column_break_pywvh",
+  "shift",
+  "section_break_ljhz6",
+  "hourly_time",
+  "heat_no",
+  "column_break_4ep3k",
+  "billet_grade",
+  "billet_width",
+  "column_break_z4tkf",
+  "billet_size",
+  "pieces__per_hour",
+  "column_break_yhdcu",
+  "rollable_misroll",
+  "pieces_misrolled",
+  "column_break_dhu6z",
+  "billet_weight_mtr",
+  "weight_per_piece",
+  "column_break_i5ish",
+  "total_rolled_pieces",
+  "total_production",
+  "section_break_jemdv",
+  "production_records",
+  "section_break_o1m4n",
+  "downtime_entry_tab",
+  "section_break_gl9vz",
+  "column_break_tsk7w",
+  "breakdown_percentage",
+  "configurations_tab",
+  "billet_weight_used",
+  "item_group",
+  "column_break_7ws7r",
+  "source_warehouse",
+  "target_warehouse",
+  "scrap_item",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "FP-.YYYY.-",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_eqjei",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mill",
+   "fieldtype": "Link",
+   "label": "Mill",
+   "options": "Mill",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3pcns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "production_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Production Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nx3fb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.mill == \"Mill Two\"",
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product",
+   "mandatory_depends_on": "eval:doc.mill == \"Mill Two\"",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pywvh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "hourly_time.shift",
+   "fieldname": "shift",
+   "fieldtype": "Link",
+   "label": "Shift",
+   "options": "Shift",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ljhz6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "hourly_time",
+   "fieldtype": "Link",
+   "label": "Hourly Time",
+   "options": "Hourly Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "heat_no",
+   "fieldtype": "Data",
+   "label": "Heat No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4ep3k",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billet_grade",
+   "fieldtype": "Link",
+   "label": "Billet Grade",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "default": "90",
+   "fieldname": "billet_width",
+   "fieldtype": "Float",
+   "label": "Billet Width (mm)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_z4tkf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billet_size",
+   "fieldtype": "Link",
+   "label": "Billet Size (mm)",
+   "options": "Billet Size",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pieces__per_hour",
+   "fieldtype": "Float",
+   "label": "Pieces  Per Hour"
+  },
+  {
+   "fieldname": "column_break_yhdcu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rollable_misroll",
+   "fieldtype": "Float",
+   "label": "Rollable Misroll",
+   "precision": "0"
+  },
+  {
+   "fieldname": "pieces_misrolled",
+   "fieldtype": "Float",
+   "label": "Pieces Misrolled",
+   "precision": "0"
+  },
+  {
+   "fieldname": "column_break_dhu6z",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "heat_no.custom_total_avg_weight_per_mtr",
+   "fieldname": "billet_weight_mtr",
+   "fieldtype": "Float",
+   "label": "Billet Wght/Mtr (Kg)",
+   "precision": "0"
+  },
+  {
+   "fieldname": "weight_per_piece",
+   "fieldtype": "Float",
+   "label": "Weight Per Piece (Kg)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_i5ish",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_rolled_pieces",
+   "fieldtype": "Float",
+   "label": "Total Rolled Pieces",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_production",
+   "fieldtype": "Float",
+   "label": "Total Production (Kg)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_jemdv",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "production_records",
+   "fieldtype": "Table",
+   "label": "Production Records",
+   "options": "Production Record"
+  },
+  {
+   "fieldname": "section_break_o1m4n",
+   "fieldtype": "Section Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "downtime_entry_tab",
+   "fieldtype": "Table",
+   "label": "Downtime Entry (In 24 HRS)",
+   "options": "Downtime Entry Record"
+  },
+  {
+   "fieldname": "section_break_gl9vz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_tsk7w",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "breakdown_percentage",
+   "fieldtype": "Percent",
+   "label": "Breakdown Percentage",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "configurations_tab",
+   "fieldtype": "Tab Break",
+   "label": "Automated Configurations"
+  },
+  {
+   "fieldname": "billet_weight_used",
+   "fieldtype": "Float",
+   "label": "Billet Weight Used (Kg)",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "product.item_group",
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "column_break_7ws7r",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item_group.custom_source_warehouse",
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "item_group.custom_target_warehouse",
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "default": "S-Scrap",
+   "fieldname": "scrap_item",
+   "fieldtype": "Link",
+   "label": "Scrap Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Mill Production",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "custom_final_production"
+  }
+ ],
+ "modified": "2025-04-11 12:06:24.146005",
+ "modified_by": "Administrator",
+ "module": "rhino-customizations",
+ "name": "Mill Production",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
