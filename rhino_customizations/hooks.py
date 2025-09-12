@@ -7,7 +7,6 @@ app_license = "MIT"
 
 
 
-ghghgh
 
 # Includes in <head>
 # ------------------
